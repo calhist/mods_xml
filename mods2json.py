@@ -1,14 +1,16 @@
-# MODS XML to CSV
+# MODS XML to JSON
+# A script to parse MODS XML and write out to JSON, which can then be imported to OpenRefine
+# by Bill Levay for California Historical Society
 
-import os, lxml.etree as ET, csv, codecs, json
+import os, lxml.etree as ET, codecs, json
 
 # set the source directory for MODS.xml files
-path = 'C:\\mods\\wagner\\'
+path = 'C:\\mods\\maps\\'
 
 # set up dict
 files = {}
 
-# open each file in directory
+# open each file in the source directory
 for filename in os.listdir(path):
 
     if '.xml' in filename:
@@ -34,7 +36,7 @@ for filename in os.listdir(path):
 
         # remove any remaining whitespace
         parser = ET.XMLParser(remove_blank_text=True)
-        treestring = ET.tostring(tree)
+        treestring = ET.tostring(tree, encoding='UTF-16')
         clean = ET.XML(treestring, parser)
 
         # remove empty nodes
@@ -77,23 +79,27 @@ for filename in os.listdir(path):
                 for attrib in element.attrib:
                     tag = tag+'-'+attrib+':'+element.attrib[attrib]
 
+            # start going through the tree, adding tags and values to a dictionary
             # exclude top-level tags
             if tag != 'mods' or tag != 'modsCollection':
 
-                # if the tag actually has text
+                # make sure the tag actually has text
                 if element.text:
+                    el_text = element.text.encode('UTF-8')
 
-                    # dict can't have duplicate keys, so make it a list and add to it
-                    if tag not in mods:
-                        text = element.text
-                    elif tag in mods and mods[tag] != element.text:
-                        text = element.text+'; '+mods[tag]
+                    # dict can't have duplicate keys, so if there are identical tags, append values
+                    try:
+                        if tag not in mods:
+                            text = el_text
+                        elif tag in mods and mods[tag] != el_text:
+                            text = el_text+'; '+mods[tag]
 
-                    else:
+                    except:
                         pass
+                        print 'Error parsing', filename
 
                     # write to sub-dict
-                    mods[tag] = text.encode('utf-8')
+                    mods[tag] = text
                     mods['PID'] = filename.replace('_MODS.xml','')
                     
         # write sub-dict to dict
@@ -122,7 +128,7 @@ for a_file in files:
 	normalized_list.append(mods)
 
 # write out to json
-with codecs.open(path+'data.json', 'w', encoding='utf-8') as json_out:
+with codecs.open(path+'data.json', 'w', encoding='UTF-8') as json_out:
 
     #write the dictionary to json
     dump = json.dumps(normalized_list, sort_keys=True, indent=4)
