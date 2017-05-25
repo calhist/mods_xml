@@ -5,7 +5,7 @@
 import os, lxml.etree as ET, codecs, json
 
 # set the source directory for MODS.xml files
-path = 'C:\\mods\\maps\\'
+path = 'C:\\mods\\maps (old)\\'
 
 # set up dict
 files = {}
@@ -39,16 +39,25 @@ for filename in os.listdir(path):
         treestring = ET.tostring(tree, encoding='UTF-16')
         clean = ET.XML(treestring, parser)
 
-        # remove empty nodes
-        for element in tree.xpath(".//*[not(node())]"):
-            element.getparent().remove(element)
+        # remove recursively empty nodes
+        # found here: https://stackoverflow.com/questions/12694091/python-lxml-how-to-remove-empty-repeated-tags
+        def recursively_empty(e):
+           if e.text:
+               return False
+           return all((recursively_empty(c) for c in e.iterchildren()))
 
-        # remove nodes with text "null"
-        for element in tree.xpath(".//*[text()='null']"):
+        context = ET.iterwalk(clean)
+        for action, elem in context:
+            parent = elem.getparent()
+            if recursively_empty(elem):
+                parent.remove(elem)
+
+        # remove nodes with blank attribute
+        for element in clean.xpath(".//*[@*='']"):
             element.getparent().remove(element)
 
         # remove nodes with attribute "null"
-        for element in tree.xpath(".//*[@*='null']"):
+        for element in clean.xpath(".//*[@*='null']"):
             element.getparent().remove(element)
 
         # finished cleanup
@@ -91,11 +100,10 @@ for filename in os.listdir(path):
                     try:
                         if tag not in mods:
                             text = el_text
-                        elif tag in mods and mods[tag] != el_text:
+                        elif tag in mods and el_text not in mods[tag]:
                             text = el_text+'; '+mods[tag]
 
                     except:
-                        pass
                         print 'Error parsing', filename
 
                     # write to sub-dict
