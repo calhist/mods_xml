@@ -1,0 +1,112 @@
+<!-- For Prefix -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<modsCollection xmlns="http://www.loc.gov/mods/v3" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd">
+
+<!-- For Row Template -->
+
+<mods xmlns="http://www.loc.gov/mods/v3" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/mods/v3/mods-3-5.xsd">
+
+	<!-- titles -->
+	<titleInfo>
+		{{forNonBlank(cells["titleNonSort"], v, '<nonSort>'+v.value.escape('xml')+'</nonSort>', '')}}
+		<title>{{cells["title"].value.escape('xml')}}</title>
+		{{forNonBlank(cells["subTitle"], v, '<subTitle>'+v.value.escape('xml')+'</subTitle>', '')}}
+	</titleInfo>
+	{{forNonBlank(cells["noteStatementOfResponsibility"], v, '<note type="statement of responsibility">'+v.value.escape("xml")+'</note>', '')}}
+	{{forNonBlank(cells["altTitle1"], v, '<titleInfo type="alternative"><title>'+v.value.escape('xml')+'</title></titleInfo>', '')}}
+	{{forNonBlank(cells["altTitle2"], v, '<titleInfo type="alternative"><title>'+v.value.escape('xml')+'</title></titleInfo>', '')}}
+
+	<!-- identifiers and classification -->
+	<identifier type="local">{{cells["identifier"].value.escape('xml')}}</identifier>
+	{{forNonBlank(cells["identifier2"], v, '<identifier type="local">'+v.value.escape('xml')+'</identifier>', '')}}
+	{{forNonBlank(cells["identifierEAD"], v, '<identifier type="ead-unitid">'+v.value.escape('xml')+'</identifier>', '')}}
+	{{forNonBlank(cells["identifierOCLC"], v, '<identifier type="oclc">'+v.value.escape('xml')+'</identifier>', '')}}
+	{{forNonBlank(cells["classificationLCC"], v, '<classification authority="lcc">'+v.value.escape('xml')+'</classification>', '')}}
+
+	<!-- names -->
+	{{forNonBlank(cells["name1Part"], v, '<name type='+jsonize(cells["name1Type"].value)+'>'+forNonBlank(cells["name1PartTermAddress"], term, '<namePart type="termsOfAddress">'+term+'</namePart>', '')+'<namePart>'+v.value.escape('xml')+'</namePart>'+forNonBlank(cells["name1PartDate"], v, '<namePart type="date">'+v.value+'</namePart>','')+'<role><roleTerm type="text">'+cells["name1Role"].value+'</roleTerm></role></name>', '')}}
+	{{forNonBlank(cells["name2Part"], v, '<name type='+jsonize(cells["name2Type"].value)+'><namePart>'+v.value.escape('xml')+'</namePart>'+forNonBlank(cells["name2PartDate"], v, '<namePart type="date">'+v.value+'</namePart>','')+'<role><roleTerm type="text">'+cells["name2Role"].value+'</roleTerm></role></name>', '')}}
+	{{forNonBlank(cells["name3Part"], v, '<name type='+jsonize(cells["name3Type"].value)+'><namePart>'+v.value.escape('xml')+'</namePart>'+forNonBlank(cells["name3PartDate"], v, '<namePart type="date">'+v.value+'</namePart>','')+'<role><roleTerm type="text">'+cells["name3Role"].value+'</roleTerm></role></name>', '')}}
+	{{forNonBlank(cells["name4Part"], v, '<name type='+jsonize(cells["name3Type"].value)+'><namePart>'+v.value.escape('xml')+'</namePart>'+forNonBlank(cells["name3PartDate"], v, '<namePart type="date">'+v.value+'</namePart>','')+'<role><roleTerm type="text">'+cells["name3Role"].value+'</roleTerm></role></name>', '')}}
+	{{forNonBlank(cells["name5Part"], v, '<name type='+jsonize(cells["name3Type"].value)+'><namePart>'+v.value.escape('xml')+'</namePart>'+forNonBlank(cells["name3PartDate"], v, '<namePart type="date">'+v.value+'</namePart>','')+'<role><roleTerm type="text">'+cells["name3Role"].value+'</roleTerm></role></name>', '')}}
+	{{forNonBlank(cells["name6Part"], v, '<name type='+jsonize(cells["name3Type"].value)+'><namePart>'+v.value.escape('xml')+'</namePart>'+forNonBlank(cells["name3PartDate"], v, '<namePart type="date">'+v.value+'</namePart>','')+'<role><roleTerm type="text">'+cells["name3Role"].value+'</roleTerm></role></name>', '')}}
+	{{forNonBlank(cells["name7Part"], v, '<name type='+jsonize(cells["name3Type"].value)+'><namePart>'+v.value.escape('xml')+'</namePart>'+forNonBlank(cells["name3PartDate"], v, '<namePart type="date">'+v.value+'</namePart>','')+'<role><roleTerm type="text">'+cells["name3Role"].value+'</roleTerm></role></name>', '')}}
+
+	<!-- type -->
+	<typeOfResource{{forNonBlank(cells["typeOfResourceManuscript"], v, ' manuscript="yes"','')}}>cartographic</typeOfResource>
+
+	<!-- genres -->
+	{{forEach(cells["genre"].value.split('; '), v, '<genre authority="lcgft">'+v.escape("xml")+'</genre>')}}
+
+	<!-- notes -->
+	{{forNonBlank(cells["noteGeneral1"], v, '<note type="general">'+v.value.escape("xml")+'</note>', '')}}
+	{{forNonBlank(cells["noteGeneral2"], v, '<note type="general">'+v.value.escape("xml")+'</note>', '')}}
+	{{forNonBlank(cells["noteGeneral3"], v, '<note type="general">'+v.value.escape("xml")+'</note>', '')}}
+	{{forNonBlank(cells["noteGeneral4"], v, '<note type="general">'+v.value.escape("xml")+'</note>', '')}}
+	{{forNonBlank(cells["noteGeneral5"], v, '<note type="general">'+v.value.escape("xml")+'</note>', '')}}
+	{{forNonBlank(cells["noteGeneral6"], v, '<note type="general">'+v.value.escape("xml")+'</note>', '')}}
+	{{forNonBlank(cells["noteGeneral7"], v, '<note type="general">'+v.value.escape("xml")+'</note>', '')}}
+	{{forNonBlank(cells["noteHistorical"], v, '<note type="historical">'+v.value.escape("xml")+'</note>', '')}}
+	{{forNonBlank(cells["noteOwnership"], v, '<note type="ownership">'+v.value.escape("xml")+'</note>', '')}}
+
+	<!-- origin and dates -->
+	<originInfo>
+        {{forNonBlank(cells["place"], v, '<place><placeTerm type="text">'+v.value.escape("xml")+'</placeTerm></place>', '')}}
+		{{forNonBlank(cells["publisher"], v, '<publisher>'+v.value.escape('xml')+'</publisher>', '')}}
+		{{forNonBlank(cells["dateIssuedText"], v, '<dateIssued>'+v.value.escape('xml')+'</dateIssued>', '')}}
+		{{forNonBlank(cells["dateIssuedW3CDTF"], v, '<dateIssued encoding="w3cdtf" keyDate="yes"'+forNonBlank(cells["dateIssuedQualifier"], q, ' qualifier='+jsonize(q.value), '')+'>'+v.value+'</dateIssued>', '')}}
+		{{forNonBlank(cells["dateIssuedStart"], v, '<dateIssued encoding="w3cdtf" keyDate="yes" point="start"'+forNonBlank(cells["dateIssuedQualifier"], q, ' qualifier='+jsonize(q.value), '')+'>'+v.value+'</dateIssued>', '')}}
+		{{forNonBlank(cells["dateIssuedEnd"], v, '<dateIssued encoding="w3cdtf" point="end"'+forNonBlank(cells["dateIssuedQualifier"], q, ' qualifier='+jsonize(q.value), '')+'>'+v.value+'</dateIssued>', '')}}
+		{{forNonBlank(cells["dateCreatedText"], v, '<dateCreated>'+v.value.escape('xml')+'</dateCreated>', '')}}
+		{{forNonBlank(cells["dateCreatedW3CDTF"], v, '<dateCreated encoding="w3cdtf" keyDate="yes"'+forNonBlank(cells["dateCreatedQualifier"], q, ' qualifier='+jsonize(q.value), '')+'>'+v.value+'</dateCreated>', '')}}
+		{{forNonBlank(cells["dateCreatedStart"], v, '<dateCreated encoding="w3cdtf" keyDate="yes" point="start"'+forNonBlank(cells["dateCreatedQualifier"], q, ' qualifier='+jsonize(q.value), '')+'>'+v.value+'</dateCreated>', '')}}
+        {{forNonBlank(cells["dateCreatedEnd"], v, '<dateCreated encoding="w3cdtf" point="end"'+forNonBlank(cells["dateCreatedQualifier"], q, ' qualifier='+jsonize(q.value), '')+'>'+v.value+'</dateCreated>', '')}}
+        {{forNonBlank(cells["edition"], v, '<edition>'+v.value.escape('xml')+'</edition>', '')}}
+		{{forNonBlank(cells["issuance"], v, '<issuance>'+v.value.escape('xml')+'</issuance>', '')}}
+	</originInfo>
+
+	<!-- physical description and extent -->
+	{{forNonBlank(cells["extent"], v, '<physicalDescription><extent>'+v.value.escape('xml')+'</extent></physicalDescription>', '')}}
+
+	<!-- access condition and copyright -->
+	<accessCondition type="useAndReproduction">All requests to reproduce, publish, quote from or otherwise use collection materials must be submitted in writing to the Director of Library and Archives. Consent is given on behalf of the California Historical Society as the owner of the physical items and is not intended to include or imply permission from the copyright owner. Such permission must be obtained from the copyright owner. Restrictions also apply to digital representations of the original materials. Use of digital files is restricted to research and educational purposes. Responsibility for any use, including copying, transmitting, or making any other use of protected images, rests exclusively with the user. Upon request, digitized works can be removed from public view if there are rights issues that need to be resolved.</accessCondition>
+	<accessCondition type="useAndReproduction" xlink:href="http://rightsstatements.org/vocab/NKC/1.0/">No Known Copyright</accessCondition>
+	
+	<!-- subjects -->
+	{{forEach(cells["subjectNamesLC"].value.split('; '), v, '<subject authority="lcsh"><name>'+v.escape("xml")+'</name></subject>')}}
+	{{forEach(cells["subjectNamesLocal"].value.split('; '), v, '<subject authority="local"><name>'+v.escape("xml")+'</name></subject>')}}
+	{{forEach(cells["subjectTopicsLC"].value.split('; '), v, '<subject authority="lcsh"><topic>'+v.escape("xml")+'</topic></subject>')}}
+	{{forEach(cells["subjectTopicsLocal"].value.split('; '), v, '<subject authority="local"><topic>'+v.escape("xml")+'</topic></subject>')}}
+	{{forEach(cells["subjectGeoLC"].value.split('; '), v, '<subject authority="lcsh"><geographic>'+v.escape("xml")+'</geographic></subject>')}}
+	{{forEach(cells["subjectTemporal"].value.split('; '), v, '<subject authority="local"><temporal>'+v.escape("xml")+'</temporal></subject>')}}
+
+	<!-- cartographics -->
+	<subject>
+		<cartographics>
+			{{forNonBlank(cells["coordinates"], v, '<coordinates>'+v.value.escape('xml')+'</coordinates>', '')}}
+			{{forNonBlank(cells["scale"], v, '<scale>'+v.value.escape('xml')+'</scale>', '')}}
+		</cartographics>
+	</subject>
+
+	<!-- related item -->
+	{{forNonBlank(cells["relatedItemTitle"], v, '<relatedItem type='+jsonize(cells["relatedItemType"].value)+'><titleInfo><title>'+v.value.escape("xml")+'</title></titleInfo>'+forNonBlank(cells["relatedItemName"], name, '<name><namePart>'+name.value.escape("xml")+'</namePart></name>', '')+forNonBlank(cells["relatedItemNote"], note, '<note>'+note.value.escape("xml")+'</note>', '')+'</relatedItem>', '')}}
+
+	<!-- collection -->
+    <relatedItem type="host">
+		<titleInfo>
+			<title>Maps</title>
+		</titleInfo>
+        <location>
+            <physicalLocation>California Historical Society</physicalLocation>
+        </location>
+	</relatedItem>
+
+</mods>
+
+
+<!-- Don't put anything in Row Separator -->
+
+<!-- For Suffix -->
+
+</modsCollection>
