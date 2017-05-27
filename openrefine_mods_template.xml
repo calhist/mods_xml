@@ -21,9 +21,9 @@
 	{{forNonBlank(cells["identifierEAD"], v, '<identifier type="ead-unitid">'+v.value.escape('xml')+'</identifier>', '')}}
 
 	<!-- names -->
-	{{forNonBlank(cells["name1Part"], v, '<name type='+jsonize(cells["name1Type"].value)+' authority='+jsonize(cells["name1Authority"].value)+'><namePart>'+v.value.escape('xml')+'</namePart>'+forNonBlank(cells["name1PartDate"], v, '<namePart type="date">'+v.value+'</namePart>','')+'<role><roleTerm type="text">'+cells["name1Role"].value+'</roleTerm></role></name>', '')}}
-	{{forNonBlank(cells["name2Part"], v, '<name type='+jsonize(cells["name2Type"].value)+' authority='+jsonize(cells["name2Authority"].value)+'><namePart>'+v.value.escape('xml')+'</namePart>'+forNonBlank(cells["name2PartDate"], v, '<namePart type="date">'+v.value+'</namePart>','')+'<role><roleTerm type="text">'+cells["name2Role"].value+'</roleTerm></role></name>', '')}}
-	{{forNonBlank(cells["name3Part"], v, '<name type='+jsonize(cells["name3Type"].value)+' authority='+jsonize(cells["name3Authority"].value)+'><namePart>'+v.value.escape('xml')+'</namePart>'+forNonBlank(cells["name3PartDate"], v, '<namePart type="date">'+v.value+'</namePart>','')+'<role><roleTerm type="text">'+cells["name3Role"].value+'</roleTerm></role></name>', '')}}
+	{{forNonBlank(cells["name1Part"], v, '<name type='+jsonize(cells["name1Type"].value)+' authority='+jsonize(cells["name1Authority"].value)+'><namePart>'+v.value.escape('xml')+'</namePart>'+forNonBlank(cells["name1PartDate"], v, '<namePart type="date">'+v.value+'</namePart>','')+'<role><roleTerm type="text" authority="marcrelator">'+cells["name1Role"].value+'</roleTerm></role></name>', '')}}
+	{{forNonBlank(cells["name2Part"], v, '<name type='+jsonize(cells["name2Type"].value)+' authority='+jsonize(cells["name2Authority"].value)+'><namePart>'+v.value.escape('xml')+'</namePart>'+forNonBlank(cells["name2PartDate"], v, '<namePart type="date">'+v.value+'</namePart>','')+'<role><roleTerm type="text" authority="marcrelator">'+cells["name2Role"].value+'</roleTerm></role></name>', '')}}
+	{{forNonBlank(cells["name3Part"], v, '<name type='+jsonize(cells["name3Type"].value)+' authority='+jsonize(cells["name3Authority"].value)+'><namePart>'+v.value.escape('xml')+'</namePart>'+forNonBlank(cells["name3PartDate"], v, '<namePart type="date">'+v.value+'</namePart>','')+'<role><roleTerm type="text" authority="marcrelator">'+cells["name3Role"].value+'</roleTerm></role></name>', '')}}
 	
 	<!-- type -->
 	<typeOfResource>still image</typeOfResource>

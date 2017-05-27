@@ -19,7 +19,7 @@ for filename in os.listdir(path):
         mods = {}
 
         # parse source.xml with lxml
-        parser = ET.XMLParser(recover=True)
+        parser = ET.XMLParser(recover=True, remove_blank_text=True)
         tree = ET.parse(path+filename, parser)
 
         # start cleanup
@@ -35,7 +35,6 @@ for filename in os.listdir(path):
                     element.text = element.text.replace('\t', '')
 
         # remove any remaining whitespace
-        parser = ET.XMLParser(remove_blank_text=True)
         treestring = ET.tostring(tree, encoding='UTF-16')
         clean = ET.XML(treestring, parser)
 
@@ -138,7 +137,7 @@ for a_file in files:
 # write out to json
 with codecs.open(path+'data.json', 'w', encoding='UTF-8') as json_out:
 
-    #write the dictionary to json
+    # write the list of dictionaries to json
     dump = json.dumps(normalized_list, sort_keys=True, indent=4)
     json_out.write(dump)
 
