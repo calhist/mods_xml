@@ -74,8 +74,8 @@
 	<accessCondition type="useAndReproduction" xlink:href="http://rightsstatements.org/vocab/NKC/1.0/">No Known Copyright</accessCondition>
 	
 	<!-- subjects -->
-	{{forEach(cells["subjectNamesLC"].value.split('; '), v, '<subject authority="lcsh"><name>'+v.escape("xml")+'</name></subject>')}}
-	{{forEach(cells["subjectNamesLocal"].value.split('; '), v, '<subject authority="local"><name>'+v.escape("xml")+'</name></subject>')}}
+	{{forEach(cells["subjectNamesLC"].value.split('; '), v, '<subject authority="lcsh"><name><namePart>'+v.escape("xml")+'</namePart>'+forNonBlank(cells["subjectNamesLCDate"], d, '<namePart type="date">'+d.value.escape("xml")+'</namePart>', '')+'</name></subject>')}}
+	{{forEach(cells["subjectNamesLocal"].value.split('; '), v, '<subject authority="local"><name><namePart>'+v.escape("xml")+'</namePart>'+forNonBlank(cells["subjectNamesLocalDate"], d, '<namePart type="date">'+d.value.escape("xml")+'</namePart>', '')+'</name></subject>')}}
 	{{forEach(cells["subjectTopicsLC"].value.split('; '), v, '<subject authority="lcsh"><topic>'+v.escape("xml")+'</topic></subject>')}}
 	{{forEach(cells["subjectTopicsLocal"].value.split('; '), v, '<subject authority="local"><topic>'+v.escape("xml")+'</topic></subject>')}}
 	{{forEach(cells["subjectGeoLC"].value.split('; '), v, '<subject authority="lcsh"><geographic>'+v.escape("xml")+'</geographic></subject>')}}
