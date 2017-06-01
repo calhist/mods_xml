@@ -36,7 +36,7 @@
 	{{forNonBlank(cells["noteGeneral2"], v, '<note type="general">'+v.value.escape("xml")+'</note>', '')}}
 	{{forNonBlank(cells["noteGeneral3"], v, '<note type="general">'+v.value.escape("xml")+'</note>', '')}}
 	{{forNonBlank(cells["noteHistorical"], v, '<note type="historical">'+v.value.escape("xml")+'</note>', '')}}
-	<note type="preferredCitation">{{cells["title"].value.escape("xml")+', '+cells["collection"].value.escape("xml")+' by Anton Wagner, '+cells["callNumber"].value.escape("xml")+', California Historical Society'}}</note>
+	<note type="preferredCitation">{{cells["title"].value.escape("xml")+', '+cells["collection"].value.escape("xml")+', '+cells["callNumber"].value.escape("xml")+', California Historical Society'}}</note>
 
 	<!-- origin and dates -->
 	<originInfo>
@@ -53,7 +53,7 @@
 
 	<!-- access condition and copyright -->
 	<accessCondition type="useAndReproduction">All requests to reproduce, publish, quote from or otherwise use collection materials must be submitted in writing to the Director of Library and Archives. Consent is given on behalf of the California Historical Society as the owner of the physical items and is not intended to include or imply permission from the copyright owner. Such permission must be obtained from the copyright owner. Restrictions also apply to digital representations of the original materials. Use of digital files is restricted to research and educational purposes. Responsibility for any use, including copying, transmitting, or making any other use of protected images, rests exclusively with the user. Upon request, digitized works can be removed from public view if there are rights issues that need to be resolved.</accessCondition>
-	<accessCondition type="useAndReproduction" xlink:href="http://rightsstatements.org/vocab/NKC/1.0/">No Known Copyright</accessCondition>
+	<accessCondition type="rightsStatement" xlink:href="http://rightsstatements.org/vocab/NKC/1.0/">No Known Copyright</accessCondition>
 <!-- 	<accessCondition type="restrictionOnAccess">Collection is open for research.</accessCondition> -->
 
 	<!-- subjects -->

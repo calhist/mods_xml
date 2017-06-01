@@ -71,7 +71,7 @@
 
 	<!-- access condition and copyright -->
 	<accessCondition type="useAndReproduction">All requests to reproduce, publish, quote from or otherwise use collection materials must be submitted in writing to the Director of Library and Archives. Consent is given on behalf of the California Historical Society as the owner of the physical items and is not intended to include or imply permission from the copyright owner. Such permission must be obtained from the copyright owner. Restrictions also apply to digital representations of the original materials. Use of digital files is restricted to research and educational purposes. Responsibility for any use, including copying, transmitting, or making any other use of protected images, rests exclusively with the user. Upon request, digitized works can be removed from public view if there are rights issues that need to be resolved.</accessCondition>
-	<accessCondition type="useAndReproduction" xlink:href="http://rightsstatements.org/vocab/NKC/1.0/">No Known Copyright</accessCondition>
+	<accessCondition type="rightsStatement" xlink:href="http://rightsstatements.org/vocab/NKC/1.0/">No Known Copyright</accessCondition>
 	
 	<!-- subjects -->
 	{{forEach(cells["subjectNamesLC"].value.split('; '), v, '<subject authority="lcsh"><name><namePart>'+v.escape("xml")+'</namePart>'+forNonBlank(cells["subjectNamesLCDate"], d, '<namePart type="date">'+d.value.escape("xml")+'</namePart>', '')+'</name></subject>')}}
