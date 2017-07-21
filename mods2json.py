@@ -5,7 +5,7 @@
 import os, lxml.etree as ET, codecs, json
 
 # set the source directory for MODS.xml files
-path = 'C:\\mods\\maps (old)\\'
+path = 'C:\\mods\\maps\\'
 
 # set up dict
 files = {}
