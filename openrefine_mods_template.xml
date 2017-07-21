@@ -48,6 +48,9 @@
         {{forNonBlank(cells["place"], v, '<place><placeTerm type="text">'+v.value.escape("xml")+'</placeTerm></place>', '')}}
 	</originInfo>
 
+	<!-- language -->
+	{{forEach(cells["language"].value.split('; '), v, '<language><languageTerm type="code" authority="iso639-2b">'+v.escape("xml")+'</languageTerm></language>')}}
+
 	<!-- physical description and extent -->
 	{{forNonBlank(cells["extent"], v, '<physicalDescription><extent>'+v.value.escape("xml")+'</extent></physicalDescription>', '')}}
 
