@@ -27,7 +27,7 @@
 	{{forNonBlank(cells["name3Part"], v, '<name type='+jsonize(cells["name3Type"].value)+' authority='+jsonize(cells["name3Authority"].value)+'><namePart>'+v.value.escape('xml')+'</namePart>'+forNonBlank(cells["name3PartDate"], v, '<namePart type="date">'+v.value+'</namePart>','')+'<role><roleTerm type="text" authority="marcrelator">'+cells["name3Role"].value+'</roleTerm></role></name>', '')}}
 	
 	<!-- type -->
-	<typeOfResource>still image</typeOfResource>
+	<typeOfResource>{{forNonBlank(cells["typeOfResource"], v, v.value.escape("xml"), 'still image')}}</typeOfResource>
 
 	<!-- genres -->
 	{{forEach(cells["genre"].value.split('; '), v, '<genre authority='+jsonize(cells['genreAuthority'].value)+'>'+v.escape("xml")+'</genre>')}}
