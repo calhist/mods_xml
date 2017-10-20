@@ -76,6 +76,12 @@
 		</cartographics>
 	</subject>
 
+	<!-- location -->
+	<location>
+		<physicalLocation>{{cells["repository"].value.escape('xml')}}</physicalLocation>
+		<shelfLocator>{{cells["shelfLocator"].value.escape('xml')}}</shelfLocator>
+	</location>
+
 	<!-- collection -->
     <relatedItem type="host">
 		<titleInfo>
