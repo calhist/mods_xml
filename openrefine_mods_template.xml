@@ -37,7 +37,7 @@
 	{{forNonBlank(cells["noteGeneral2"], v, '<note type="general">'+v.value.escape("xml")+'</note>', '')}}
 	{{forNonBlank(cells["noteGeneral3"], v, '<note type="general">'+v.value.escape("xml")+'</note>', '')}}
 	{{forNonBlank(cells["noteHistorical"], v, '<note type="historical">'+v.value.escape("xml")+'</note>', '')}}
-	<note type="preferredCitation">{{cells["title"].value.escape("xml").chomp(".")+', '+cells["collection"].value.escape("xml")+', '+cells["callNumber"].value.escape("xml")+', California Historical Society'}}</note>
+	<note type="preferredCitation">{{cells["title"].value.escape("xml").chomp(".")+', '+cells["collection"].value.escape("xml")+', '+cells["callNumber"].value.escape("xml")+', California Historical Society, '+cells["identifier"].value.escape("xml")}}</note>
 
 	<!-- origin and dates -->
 	<originInfo>
@@ -77,10 +77,10 @@
 	</subject>
 
 	<!-- location -->
-	<location>
+<!-- 	<location>
 		<physicalLocation>{{cells["repository"].value.escape('xml')}}</physicalLocation>
 		<shelfLocator>{{cells["shelfLocator"].value.escape('xml')}}</shelfLocator>
-	</location>
+	</location> -->
 
 	<!-- collection -->
     <relatedItem type="host">
