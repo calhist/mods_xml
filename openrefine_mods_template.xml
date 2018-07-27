@@ -90,6 +90,7 @@
 		<identifier type="local">{{cells["callNumber"].value.escape('xml')}}</identifier>
         <location>
             <physicalLocation>{{cells["repository"].value.escape('xml')}}</physicalLocation>
+	    <url>{{cells["findingAid"].value.escape('xml')}}</url>
         </location>
 	</relatedItem>
 
