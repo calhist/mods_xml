@@ -6,7 +6,7 @@ Resources and tools for creating valid MODS XML for CHS digital collections.
 A spreadsheet template for cataloging digital objects. Column headers correspond to the OpenRefine templating code. 
 
 ### openrefine_mods_template.xml
-OpenRefine templating code for exporting to MODS XML. Also includes a version tailored for the CHS Maps collection.
+OpenRefine templating code for exporting to MODS XML. Also includes a versions tailored for the CHS Maps and AV collections.
 
 ### mods2json.py
 Python script that attempts to parse MODS XML and output to JSON, which can then be imported into OpenRefine. Could certainly use some work, but it's functional.
