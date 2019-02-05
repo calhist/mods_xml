@@ -5,9 +5,6 @@ Resources and tools for creating valid MODS XML for CHS digital collections.
 ### mods_column_headers.csv
 A spreadsheet template for cataloging digital objects. Column headers correspond to the OpenRefine templating code.
 
-### mods_column_headers_AV.csv
-A spreadsheet template for cataloging AV material. Column headers correspond to the OpenRefine templating code.
-
 ### openrefine_mods_template.xml
 OpenRefine templating code for exporting to MODS XML. Also includes a versions tailored for the CHS Maps and AV collections.
 
