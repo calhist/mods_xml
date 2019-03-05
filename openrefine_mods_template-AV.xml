@@ -15,7 +15,7 @@
 	</titleInfo>
 	{{forNonBlank(cells["altTitle"], v, '<titleInfo type="alternative"><title>'+v.value.escape('xml')+'</title></titleInfo>', '')}}
   
-  <!-- abstract -->
+  	<!-- abstract -->
 	{{forNonBlank(cells["description"], v, '<abstract displayLabel="Scope and contents"> '+v.value.escape("xml")+'</abstract>', '')}}
 
 	<!-- identifiers and classification -->
@@ -57,9 +57,9 @@
 
 	<!-- physical description and extent -->
 	{{forNonBlank(cells["extent"], v, '<physicalDescription><extent>'+v.value.escape("xml")+'</extent></physicalDescription>', '')}}
-  {{forNonBlank(cells["colors"], v, '<physicalDescription><note type="colors">'+v.value.escape("xml")+'</note type="colors"></physicalDescription>', '')}}
-  {{forNonBlank(cells["audioConfiguration"], v, '<physicalDescription><note type="audioConfiguration">'+v.value.escape("xml")+'</note type="audioConfiguration"></physicalDescription>', '')}}
-  {{forNonBlank(cells["generation"], v, '<physicalDescription><refromattingQuality>'+v.value.escape("xml")+'</refromattingQuality></physicalDescription>', '')}}
+  	{{forNonBlank(cells["colors"], v, '<physicalDescription><note type="colors">'+v.value.escape("xml")+'</note></physicalDescription>', '')}}
+  	{{forNonBlank(cells["audioConfiguration"], v, '<physicalDescription><note type="audioConfiguration">'+v.value.escape("xml")+'</note></physicalDescription>', '')}}
+  	{{forNonBlank(cells["generation"], v, '<physicalDescription><reformattingQuality>'+v.value.escape("xml")+'</reformattingQuality></physicalDescription>', '')}}
 
 	<!-- access condition and copyright -->
 	<accessCondition type="useAndReproduction">{{cells["useAndReproduction"].value.escape('xml')}}</accessCondition>
