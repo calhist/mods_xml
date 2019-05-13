@@ -64,10 +64,7 @@
 <!-- 	<accessCondition type="restrictionOnAccess">Collection is open for research.</accessCondition> -->
 
 	<!-- subjects -->
-	{{forEach(cells["subjectNamesLC1"].value.split('; '), v, '<subject authority="lcsh"><name><namePart>'+v.escape("xml")+'</namePart>'+forNonBlank(cells["subjectNamesLC1Date"], d, '<namePart type="date">'+d.value.escape("xml")+'</namePart>', '')+'</name></subject>')}}
-	{{forEach(cells["subjectNamesLC2"].value.split('; '), v, '<subject authority="lcsh"><name><namePart>'+v.escape("xml")+'</namePart>'+forNonBlank(cells["subjectNamesLC2Date"], d, '<namePart type="date">'+d.value.escape("xml")+'</namePart>', '')+'</name></subject>')}}
-	{{forEach(cells["subjectNamesLC3"].value.split('; '), v, '<subject authority="lcsh"><name><namePart>'+v.escape("xml")+'</namePart>'+forNonBlank(cells["subjectNamesLC3Date"], d, '<namePart type="date">'+d.value.escape("xml")+'</namePart>', '')+'</name></subject>')}}
-	{{forEach(cells["subjectNamesLC4"].value.split('; '), v, '<subject authority="lcsh"><name><namePart>'+v.escape("xml")+'</namePart>'+forNonBlank(cells["subjectNamesLC4Date"], d, '<namePart type="date">'+d.value.escape("xml")+'</namePart>', '')+'</name></subject>')}}
+	{{forEach(cells["subjectNamesLC"].value.split('; '), v, '<subject authority="lcsh"><name><namePart>'+v.escape("xml")+'</namePart>'+forNonBlank(cells["subjectNamesLCDate"], d, '<namePart type="date">'+d.value.escape("xml")+'</namePart>', '')+'</name></subject>')}}
 	{{forEach(cells["subjectNamesLocal"].value.split('; '), v, '<subject authority="local"><name><namePart>'+v.escape("xml")+'</namePart>'+forNonBlank(cells["subjectNamesLocalDate"], d, '<namePart type="date">'+d.value.escape("xml")+'</namePart>', '')+'</name></subject>')}}
 	{{forEach(cells["subjectTopicsLC"].value.split('; '), v, '<subject authority="lcsh"><topic>'+v.escape("xml")+'</topic></subject>')}}
 	{{forEach(cells["subjectTopicsLocal"].value.split('; '), v, '<subject authority="local"><topic>'+v.escape("xml")+'</topic></subject>')}}
