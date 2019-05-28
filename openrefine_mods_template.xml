@@ -40,7 +40,7 @@
 	{{forNonBlank(cells["noteGeneral2"], v, '<note type="general">'+v.value.escape("xml")+'</note>', '')}}
 	{{forNonBlank(cells["noteGeneral3"], v, '<note type="general">'+v.value.escape("xml")+'</note>', '')}}
 	{{forNonBlank(cells["noteHistorical"], v, '<note type="historical">'+v.value.escape("xml")+'</note>', '')}}
-	<note type="preferredCitation">{{cells["title"].value.escape("xml").chomp(".")+', '+cells["dateText"].value.escape("xml")+'; '+cells["collection"].value.escape("xml")+', '+cells["callNumber"].value.escape("xml")+'; California Historical Society.}}</note>
+	{{forNonBlank(cells["preferredCitation"], v, '<note type="preferred citation">'+v.value.escape("xml")+'</note>', '')}}
 	
 	<!-- origin and dates -->
 	<originInfo>
