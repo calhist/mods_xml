@@ -16,7 +16,7 @@
 	{{forNonBlank(cells["altTitle"], v, '<titleInfo type="alternative"><title>'+v.value.escape('xml')+'</title></titleInfo>', '')}}
   
   	<!-- abstract -->
-	{{forNonBlank(cells["description"], v, '<abstract displayLabel="Description"> '+v.value.escape("xml")+'</abstract>', '')}}
+	{{forNonBlank(cells["description"], v, '<abstract displayLabel="Scope and contents"> '+v.value.escape("xml")+'</abstract>', '')}}
 
 	<!-- identifiers and classification -->
 	<identifier type="local">{{cells["identifier"].value.escape('xml')}}</identifier>
